@@ -1,10 +1,10 @@
 services:
   - type: web
     name: students-results-portal
-    plan: free
     runtime: python
-    buildCommand: './build.sh'
-    startCommand: 'gunicorn results_portal.wsgi:application'
+    plan: free
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn results_portal.wsgi:application"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
@@ -12,6 +12,8 @@ services:
           property: connectionString
       - key: SECRET_KEY
         generateValue: true
+      - key: PYTHON_VERSION
+        value: 3.11.0
 
 databases:
   - name: students-results-db
