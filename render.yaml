@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: student-results-portal
+    name: students-results-portal
     plan: free
     runtime: python
     buildCommand: './build.sh'
@@ -8,11 +8,11 @@ services:
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: student-results-db
+          name: students-results-db
           property: connectionString
       - key: SECRET_KEY
         generateValue: true
 
 databases:
-  - name: student-results-db
+  - name: students-results-db
     plan: free
